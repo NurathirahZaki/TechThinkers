@@ -1,94 +1,134 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Additional styles for the dashboard */
-        body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        background-image: url("background.jpg"); 
-        background-size: cover; /* Adjusts the size of the background image to cover the entire body */
-        background-repeat: no-repeat; /* Prevents the background image from repeating */
-        color: #333; /* Text color */
-}
+<?php  include('header.php'); ?>
+<?php  include('session.php'); ?>
+    <body>
+		<?php include('navbar.php') ?>
+        <div class="container-fluid">
+            <div class="row-fluid">
+					<?php include('sidebar_dashboard.php'); ?>
+                <!--/span-->
+                <div class="span9" id="content">
+						<div class="row-fluid"></div>
+						
+                    <div class="row-fluid">
+            
+                        <!-- block -->
+                        <div id="block_bg" class="block">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left">Data Numbers Dashboard Admin</div>
+                            </div>
+                            <div class="block-content collapse in">
+							        <div class="span12">
+						
+									<?php 
+								$query_reg_teacher = mysqli_query($conn,"select * from teacher where teacher_status = 'Registered' ")or die(mysqli_error());
+								$count_reg_teacher = mysqli_num_rows($query_reg_teacher);
+								?>
+								
+                                <div class="span3">
+                                    <div class="chart" data-percent="<?php echo $count_reg_teacher; ?>"><?php echo $count_reg_teacher; ?></div>
+                                    <div class="chart-bottom-heading"><strong>Registered Teacher</strong>
 
-        /* Dashboard styles */
-        .dashboard {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            padding: 20px;
-        }
+                                    </div>
+                                </div>
+								
+								<?php 
+								$query_teacher = mysqli_query($conn,"select * from teacher")or die(mysqli_error());
+								$count_teacher = mysqli_num_rows($query_teacher);
+								?>
+								
+								
+                                <div class="span3">
+                                    <div class="chart" data-percent="<?php echo $count_teacher; ?>"><?php echo $count_teacher ?></div>
+                                    <div class="chart-bottom-heading"><strong>Teachers</strong>
 
-        .dashboard-item {
-            width: 200px;
-            height: 200px;
-            margin: 20px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            transition: transform 0.3s ease-in-out;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            background-color: white; /* Background color set to white */
-            color: purple; /* Text color set to purple */
-            border-radius: 10px; /* Rounded corners */
-        }
+                                    </div>
+                                </div>
+								
+								<?php 
+								$query_student = mysqli_query($conn,"select * from student where status='Registered'")or die(mysqli_error());
+								$count_student = mysqli_num_rows($query_student);
+								?>
+								
+                                <div class="span3">
+                                    <div class="chart" data-percent="<?php echo $count_student ?>"><?php echo $count_student ?></div>
+                                    <div class="chart-bottom-heading"><strong>Registered Students</strong>
 
-        .dashboard-item:hover {
-            transform: scale(1.1);
-        }
-		
-		/* CSS for the top-panel and title */
-        .top-panel {
-            display: flex;
-            justify-content: left;
-            align-items: left;
-            background-color: indigo;
-            color: white;
-            padding: 10px 20px;
-            height: 60px; /* Adjust the height as needed */
-        }
+                                    </div>
+                                </div>
+								
+								
+										<?php 
+								$query_student = mysqli_query($conn,"select * from student")or die(mysqli_error());
+								$count_student = mysqli_num_rows($query_student);
+								?>
+								
+                                <div class="span3">
+                                    <div class="chart" data-percent="<?php echo $count_student ?>"><?php echo $count_student ?></div>
+                                    <div class="chart-bottom-heading"><strong>Students</strong>
 
-        .page-title h2 {
-            margin: 0;
-        }
+                                    </div>
+                                </div>
+								
+								
+								
+								
+							
+								
+									<?php 
+								$query_class = mysqli_query($conn,"select * from class")or die(mysqli_error());
+								$count_class = mysqli_num_rows($query_class);
+								?>
+								
+                                <div class="span3">
+                                    <div class="chart" data-percent="<?php echo $count_class; ?>"><?php echo $count_class; ?></div>
+                                    <div class="chart-bottom-heading"><strong>Class</strong>
 
-    </style>
-</head>
-<body>
-    <div class="top-panel">
-        <div class="page-title">
-            <h2>Dashboard</h2>
+                                    </div>
+                                </div>
+								
+								
+										<?php 
+								$query_file = mysqli_query($conn,"select * from files")or die(mysqli_error());
+								$count_file = mysqli_num_rows($query_file);
+								?>
+								
+                                <div class="span3">
+                                    <div class="chart" data-percent="<?php echo $count_file; ?>"><?php echo $count_file; ?></div>
+                                    <div class="chart-bottom-heading"><strong>Downloadable File</strong>
+
+                                    </div>
+                                </div>
+								
+								
+										<?php 
+								$query_subject = mysqli_query($conn,"select * from subject")or die(mysqli_error());
+								$count_subject = mysqli_num_rows($query_subject);
+								?>
+								
+                                <div class="span3">
+                                    <div class="chart" data-percent="<?php echo $count_subject; ?>"><?php echo $count_subject; ?></div>
+                                    <div class="chart-bottom-heading"><strong>Subjects</strong>
+
+                                    </div>
+                                </div>
+						
+						
+                            </div>
+                        </div>
+                        <!-- /block -->
+						
+                    </div>
+                    </div>
+                
+                
+                 
+                 
+                </div>
+            </div>
+    
+         <?php include('footer.php'); ?>
         </div>
-    </div>
-	
-    <div class="dashboard">
-        <div class="dashboard-item">
-            <h3>Calendar</h3>
-        </div>
-        <div class="dashboard-item">
-            <h3>Subject</h3>
-        </div>
-        <div class="dashboard-item">
-            <h3>User Profile</h3>
-        </div>
-        <a href="attendance.php" class="dashboard-item">
-            <h3>Attendance</h3>
-        </a>
-        <div class="dashboard-item">
-            <h3>Grade</h3>
-        </div>
-        <div class="dashboard-item">
-            <h3>Communication</h3>
-        </div>
-    </div>
-</body>
+	<?php include('script.php'); ?>
+    </body>
+
 </html>
