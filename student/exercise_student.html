@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Module</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional styles for the exercise module */
+        /* Use the existing styles and extend them for the exercise module */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: purple;
+            font-family: Arial, sans-serif;
+            color: black;
+        }
+        /* Styles for the exercise section */
+        .exercise-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .exercise-item {
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid purple;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: white;
+            color: purple;
+            border-radius: 10px;
+        }
+
+        .exercise-item:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="top-panel">
+        <div class="page-title" position="">
+            <h2>Exercise Module</h2>
+        </div>
+    </div>
+
+    <div class="exercise-container">
+        <!-- Exercise items (quizzes, content uploaded by teachers, etc.) -->
+        <a href="quiz.php" class="exercise-item"> <!-- Link to a quiz page -->
+            <h3>Quizzes</h3>
+        </a>
+        <a href="teacher_material.html" class="exercise-item"> <!-- Link to content uploaded by teachers -->
+            <h3>Uploaded Content</h3>
+        </a>
+        <!-- Add more exercise items as needed -->
+    </div>
+</body>
+</html>
