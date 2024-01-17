@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher View</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to the style.css file -->
+    <!-- Other necessary meta tags, scripts, etc. -->
+    <style>
+        /* Existing styles for teacher view */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: purple;
+            color: #343a40;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .teacher-container {
+            width: 90%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+            align-items: center;
+        }
+
+        .teacher-item {
+            width: 100%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: white;
+            color: purple;
+            border-radius: 10px;
+        }
+
+        /* New styles for file upload */
+        .teacher-item form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .upload-label {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .upload-input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .upload-btn {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .upload-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Content in your quiz.php file -->
+    <div class="teacher-container">
+        <!-- Teacher item for file upload -->
+        <div class="teacher-item">
+            <h3>Upload Files</h3>
+            <!-- Form for file upload -->
+            <form action="upload.php" method="post" enctype="multipart/form-data">
+                <label for="fileToUpload" class="upload-label">Select file to upload (PDF, ZIP, DOCX, MAX 3 files):</label>
+                <input type="file" name="fileToUpload[]" id="fileToUpload" class="upload-input" accept=".pdf,.zip,.docx" multiple>
+                <input type="submit" value="Upload File" name="submit" class="upload-btn">
+            </form>
+        </div>
+        <!-- Other teacher items -->
+        <div class="teacher-item">
+            <h3>Notes</h3>
+            <textarea class="notes-textarea" placeholder="Add your notes here..."></textarea>
+        </div>
+        <!-- Additional items can be added -->
+        <div class="teacher-item">
+            <h3>Additional Resource and Quizzes</h3>
+            <a href="https://quizizz.com/join/quiz/60af1c6baa5e3d001c7a70ff/start?studentShare=true" class="AWS Exercise 1">Resource Link</a>
+            <a href="https://quizizz.com/join/quiz/5ffd820da290ed001b496d61/start?studentShare=true" class="AWS Exercise 2">Resource Link</a>
+            <a href="https://quizizz.com/join/quiz/637589808191cb001e4938ea/start?studentShare=true" class="AWS Exercise 2">Resource Link</a>
+        </div>
+    </div>
+</body>
+</html>
